@@ -1,16 +1,93 @@
+@font-face {
+    font-family: 'TransducerTestBlackExtended';
+    src: url('../public/font/TransducerTestBlackExtended.ttf') format('truetype');
+}
+
 body {
     background: linear-gradient(77.5deg, #00FFFF 18.67%, #00FFCA 82.33%);
 }
-/* #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-} */
+.font-transducer {
+    font-family: 'TransducerTestBlackExtended', sans-serif;
+}
+.font-heading{
+    font-size: 42px;
+}
+.font-text{
+    font-size: 13px;
+}
 .text-uppercase {
     text-transform: uppercase;
 }
-.card {
-    margin: 10px;
+.p-main{
+    padding: 35px;
+}
+.small-slanted {
+    background: white;
+    width: 45px;
+    position: absolute;
+    left: 0%;
+    transform: translateX(10%) skew(-30deg);
+    text-align: center;
+    height: 30px;
+    padding: 5px;
+    border-radius: 2px;
+}
+.small-slanted p i{
+    color: #008689;
+    font-size: 11px;
+}
+.small-slanted p {
+    transform: translateX(-3%) skew(30deg) translateY(-1px);
+}
+.large-slanted {
+    background: white;
+    width: 80%;
+    justify-content: space-between;
+    transform: translateX(19%) skew(-30deg);
+    text-align: left;
+    height: 70px;
+    padding: 5px;
+    border-radius: 2px;
+}
+.large-slanted .name {
+    transform: translateX(25%) skew(30deg) translateY(10px);
+    text-transform: uppercase;
+    line-height: normal;
+}
+.large-slanted .points {
+    transform: translateX(-55%) skew(30deg) translateY(10px);
+    text-transform: uppercase;
+    line-height: normal;
+}
+.large-slanted .name span{
+    font-size: 12px;
+}
+.position-relative{
+    position: relative;
+}
+.points{
+    line-height: normal;
+}
+.points span {
+    font-size: 12px;
+}
+@media (max-width: 767px) {
+    .p-main{
+        padding: 0;
+    }
+    .font-heading {
+        font-size: 27px;
+    }
+    .large-slanted{
+        width: 80%;
+        height: 60px;
+        transform: translateX(19%) skew(-30deg);
+    }
+    .points{
+        right: 45px;
+        font-size: 12px;
+    }
+    .large-slanted .name{
+        font-size: 12px;
+    }
 }

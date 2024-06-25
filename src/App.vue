@@ -1,6 +1,10 @@
 <template>
-  <Leaderboard/>
-  <Results/>
+  <div class="container-fluid mt-4">
+  <div class="p-main">
+      <Leaderboard/>
+    <Results/>
+  </div>
+  </div>
 </template>
 
 <script>
