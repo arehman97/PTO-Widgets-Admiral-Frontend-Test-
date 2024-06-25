@@ -1,26 +1,17 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <Leaderboard/>
+  <Results/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Leaderboard from './components/Pto-Leaderboard/Pto-Leaderboard.vue'
+import Results from './components/Pto-Results/Pto-Results.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Leaderboard,
+    Results
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
