@@ -2,6 +2,7 @@
     font-family: 'TransducerTestBlackExtended';
     src: url('../public/font/TransducerTestBlackExtended.ttf') format('truetype');
 }
+/* Generic Start */
 
 body {
     background: linear-gradient(77.5deg, #00FFFF 18.67%, #00FFCA 82.33%);
@@ -18,6 +19,10 @@ body {
 .text-uppercase {
     text-transform: uppercase;
 }
+/* Generic End */
+
+/* Leaderboard Component Start */
+
 .p-main{
     padding: 35px;
 }
@@ -106,6 +111,130 @@ body {
     width: 100%;
     height: 100%;
 }
+/* Leaderboard Component End */
+
+/* Results Component Start */
+.results-nav {
+    background: #FFF;
+    width: fit-content;
+    border-radius: 5px;
+    padding: 10px 0;
+}
+.results-nav button{
+    width: 130px;
+    border: none !important;
+    margin: 0 !important;
+    border-top-left-radius: 5px !important;
+    border-top-right-radius: 5px !important;
+    border-bottom-left-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
+}
+.results-nav :not(.active){
+    color: #A6B1C9 !important;
+}
+.results-nav .border-gray-line {
+    border-right: 1px solid #8F9BB8 !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+.bg-gray{
+    background: #F2F3F8;
+    padding: 35px;
+    border-radius: 5px;
+    overflow: auto;
+}
+.bg-white{
+    background: #FFF;
+    border-radius: 5px;
+}
+th {
+    font-family: sans-serif;
+    padding: 25px 15px;
+}
+tr {
+    border-bottom: 1px solid #c6c7c8;
+}
+.score {
+    background: #02162D;
+    color: #00FFFF;
+    padding: 10px;
+    border-radius: 5px;
+}
+.color-box {
+    background: #008689;
+    color: #FFF;
+    padding: 10px;
+    border-radius: 5px;
+    align-items: baseline;
+}
+.color-box .image-div{
+    width: 15px;
+    height: 15px;
+    transform: translateY(-2px);
+}
+.color-box img {
+    width: 100%;
+    height: 100%;
+}
+.color-box span {
+   margin-right: 5px;
+}
+.font-table-name {
+    font-size: 14px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+.font-table-name span{
+    font-size: 12px;
+}
+.price-div{
+    margin-right: 20px;
+    align-items: baseline;
+    font-size: 14px;
+    font-family: sans-serif;
+}
+.price-div .image-div{
+    width: 15px;
+    height: 15px;
+    margin-right: 6px;
+    transform: translateY(-2px);
+}
+.price-div img {
+    width: 100%;
+    height: 100%;
+}
+.select-season {
+    background: #E5F7F7;
+    border-radius: 5px;
+    width: 220px;
+    padding: 9px;
+}
+.select-season:after{
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #000;
+    position: absolute;
+    top: 48%;
+    right: 25px;
+    content: "";
+    z-index: 98;
+   }
+.select-season p{
+    text-align: left;
+    margin: 0;
+    font-size: 12px;
+}
+.select-season select {
+    border: none;
+    height: 26px;
+    padding: 0;
+    margin: 0;
+    background: #E5F7F7;
+}
+/* Results Component End */
 
 /* Responsive CSS Start */
 @media (max-width: 767px) {
@@ -158,6 +287,13 @@ body {
     }
     .points span {
         font-size: 10px;
+    }
+    .select-season {
+        width: 100%;
+        margin-top: 20px;    
+    }
+    .select-season:after {
+        top: 60%;
     }
 }
 /* Responsive CSS End */
