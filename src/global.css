@@ -13,7 +13,7 @@ body {
     font-size: 42px;
 }
 .font-text{
-    font-size: 13px;
+    font-size: 14px;
 }
 .text-uppercase {
     text-transform: uppercase;
@@ -47,12 +47,13 @@ body {
     text-align: left;
     height: 70px;
     padding: 5px;
-    border-radius: 2px;
+    border-radius: 4px;
 }
 .large-slanted .name {
-    transform: translateX(25%) skew(30deg) translateY(10px);
+    transform: skew(30deg) translateY(10px);
     text-transform: uppercase;
     line-height: normal;
+    margin-left: 70px;
 }
 .large-slanted .points {
     transform: translateX(-55%) skew(30deg) translateY(10px);
@@ -71,6 +72,42 @@ body {
 .points span {
     font-size: 12px;
 }
+.flagImage {
+    position: absolute;
+    left: -20px;
+    top: 5px;
+    width: 15px;
+    height: 15px;
+}
+.flagImage img {
+    width: 100%;
+    height: 100%;
+}
+.background {
+    position: absolute;
+    left: 5%;
+    top: -9px;
+    width: 120px;
+    height: 70px;
+    z-index: 1;
+}
+.background img {
+    width: 100%;
+    height: 100%;
+}
+.bg-image {
+    position: absolute;
+    left: 10%;
+    width: 60px;
+    height: 60px;
+    z-index: 1;
+}
+.bg-image img{
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive CSS Start */
 @media (max-width: 767px) {
     .p-main{
         padding: 0;
@@ -90,4 +127,37 @@ body {
     .large-slanted .name{
         font-size: 12px;
     }
+    .bg-image {
+        position: absolute;
+        left: 34px;
+        top: 3px;
+        width: 40px;
+        height: 40px;
+    }
+    .background {
+        position: absolute;
+        left: 21px;
+        top: -6px;
+        width: 70px;
+        height: 50px;
+        z-index: 1;
+    }
+    .small-slanted {
+        width: 25px;
+        height: 25px;
+        font-size: 11px;
+    }
+    .large-slanted .name span {
+        font-size: 9px;
+    }
+    .font-responsive {
+        font-size: 10px;
+    }
+    .points {
+        font-size: 10px;
+    }
+    .points span {
+        font-size: 10px;
+    }
 }
+/* Responsive CSS End */
