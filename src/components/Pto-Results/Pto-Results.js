@@ -5,44 +5,85 @@ export default {
     return {
       gender: 'men',
       loading: false,
-      leaderboard: {
+      seasonsMen: [],
+      seasonsWomen: [],
+      selectedMenSeason: '',
+      selectedWomenSeason: '',
+      races: {
+        men: [],
+        women: []
+      },
+      results: {
         men: [],
         women: []
       }
     };
   },
   mounted() {
-    this.fetchLeaderboard();
+    this.fetchResults();
   },
   methods: {
-    async fetchLeaderboard() {
-      // this.loading = true;
-      // try {
-      //   const menStatsResponse = await axios.get('https://rankings.test.protriathletes.org/api/t100/season/2024/standings/MPRO');
-      //   const womenStatsResponse = await axios.get('https://rankings.test.protriathletes.org/api/t100/season/2024/standings/FPRO');
-      //   this.leaderboard.men = this.parseAthleteData(menStatsResponse?.data?.rankings?.filter(athletes => athletes?.rank <= 5));
-      //   this.leaderboard.women = this.parseAthleteData(womenStatsResponse?.data?.rankings?.filter(athletes => athletes?.rank <= 5));
-      // } catch (error) {
-      //   console.error('Error fetching leaderboard:', error);
-      // } finally {
-      //   this.loading = false;
-      // }
+    async handleMenSeasonChange(event) {
+      const selectedValue = event.target.value;
+      this.selectedMenSeason = selectedValue;
+      this.loading = true;
+      try {
+        const menStatsResponse = await axios.get('https://stats.protriathletes.org/api/t100/points/MPRO?id=' + selectedValue);
+        this.races.men = menStatsResponse?.data?.races;
+        this.results.men = menStatsResponse?.data?.athletes;
+      } catch (error) {
+        console.error('Error fetching results:', error);
+      } finally {
+        this.loading = false;
+      }
     },
-    // parseAthleteData(athletes) {
-    //   return athletes.map(athlete => ({
-    //     first: athlete.first,
-    //     last: athlete.last,
-    //     rank: athlete.rank,
-    //     points: athlete.points,
-    //     imageUrl: this.getAthleteImage(athlete?.pic)
-    //   }));
-    // },
-    // getAthleteImage(pic) {
-    //   let parsedPicture = ''
-    //   if (pic !== null) {
-    //     parsedPicture = JSON.parse(pic)
-    //   }
-    //   return parsedPicture?.img?.src; 
-    // }
+    async handleWomenSeasonChange(event) {
+      const selectedValue = event.target.value;
+      this.selectedWomenSeason = selectedValue;
+      this.loading = true;
+      try {
+        const womenStatsResponse = await axios.get('https://stats.protriathletes.org/api/t100/points/FPRO?id=' + selectedValue);
+        this.races.women = womenStatsResponse?.data?.races;
+        this.results.women = womenStatsResponse?.data?.athletes;
+      } catch (error) {
+        console.error('Error fetching results:', error);
+      } finally {
+        this.loading = false;
+      }
+    },
+    async fetchResults() {
+      this.loading = true;
+      try {
+        const menStatsResponse = await axios.get('https://stats.protriathletes.org/api/t100/points/men');
+        const womenStatsResponse = await axios.get('https://stats.protriathletes.org/api/t100/points/women');
+        //Men
+        this.seasonsMen = menStatsResponse?.data?.t100_seasons
+        this.races.men = menStatsResponse?.data?.races;
+        this.results.men = menStatsResponse?.data?.athletes;
+        this.selectedMenSeason = menStatsResponse?.data?.t100_season?.id;
+
+        //Women
+        this.seasonsWomen = womenStatsResponse?.data?.t100_seasons;
+        this.races.women = womenStatsResponse?.data?.races;
+        this.results.women = womenStatsResponse?.data?.athletes;
+        this.selectedWomenSeason = womenStatsResponse?.data?.t100_season?.id;
+      } catch (error) {
+        console.error('Error fetching results:', error);
+      } finally {
+        this.loading = false;
+      }
+    },
+    getMedalImage(overallRank) {
+      switch (overallRank) {
+        case 1:
+          return '/backgroundImages/gold.png';
+        case 2:
+          return '/backgroundImages/silver.png';
+        case 3:
+          return '/backgroundImages/bronze.png';
+        default:
+          return '';
+      }
+    }
   }
 };
